@@ -10,4 +10,5 @@ COPY . /usr/src/flask_app
 
 EXPOSE 5000
 RUN chmod +x ./entrypoint.sh
-ENTRYPOINT ["sh", "entrypoint.sh"]
+# ENTRYPOINT ["sh", "entrypoint.sh"]
+CMD ["flask", "run", "--host", "0.0.0.0"]
