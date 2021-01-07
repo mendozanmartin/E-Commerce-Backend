@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, url_for
 from flask_cors import CORS, cross_origin
-
+import json
 app = Flask(__name__, template_folder='templates')
 CORS(app)
 
@@ -34,7 +34,8 @@ def hello_world():
 def get_items():
     global items
     if request.method == 'GET':
-        return str(items)
+        json_object = json.dumps(items, indent = 4)
+        return str(json_object)
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
